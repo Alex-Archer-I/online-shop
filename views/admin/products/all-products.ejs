@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'Admin Page', links: ['products'], scripts: ['product-managment']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main>
+            <h1></h1>
+            <section>
+                <h2>Product Managment</h2>
+                <a href="/admin/products/new" class="btn">Add new product</a>
+                <a href="/admin/categories" class="btn">Category managment</a>
+            </section>
+            <section>
+                <% for (const category in productsInfo) { %>
+                    <% if (productsInfo[`${category}`].length !== 0 && category !== 'noCategory') { %>
+                        <h3></h3>
+                        <ul id="products-grid">
+                            <% for (const product of productsInfo[`${category}`]) { %>
+                                <li>
+                                    <%- include('../../includes/product-item', {product: product}) %>
+                                </li>
+                            <% } %>
+                        </ul>
+                    <% } %>
+                <% } %>
+            </section>
+        </main>
+        <%- include('../../includes/footer') %>
+    </body>
+</html>

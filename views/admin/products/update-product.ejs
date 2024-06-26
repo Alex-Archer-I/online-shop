@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'Update product', links: ['form'], scripts: ['image-preview']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main>
+            <h1>Update product</h1>
+            <section>
+                <%- include('../../includes/product-form', {path: `/admin/products/${product.id}`, product: product, imgRequired: false, categories: categories}) %>
+            </section>
+        </main>
+    <%- include('../../includes/footer') %>
+</html>

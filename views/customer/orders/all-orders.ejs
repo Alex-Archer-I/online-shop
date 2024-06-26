@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'All Orders', links: null, scripts: null}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main>
+            <h1>All Your Orders</h1>
+            <%- include('../../includes/order-list', {orders: orders}) %>
+        </main>
+        <%- include('../../includes/footer') %>
+    </body>
+</html>

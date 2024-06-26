@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'Cart', links: ['cart', 'products'], scripts: ['cart-helpers', 'cart-managment']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main>
+            <h1>Your Cart</h1>
+            <ul id="cart-list">
+                <% for (const product of locals.cart.items) { %>
+                    <li>
+                        <%- include('../../includes/cart-item', {product: product}) %>
+                    </li>
+                <% } %>
+            </ul>
+            <div id="cart-amount">
+                <p>Total: <%= locals.cart.totalPrice.toFixed(2) %> coins</p>
+
+                <% if (!locals.isAuth) { %>
+                    <a class="btn" href="/login">Log In to make order</a>
+                <% } else if (locals.isAuth && locals.cart.totalQuantity === 0) { %>
+                    <a class="btn" href="/">Add products to cart</a>
+                <% } else { %>
+                    <form action="/orders" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= locals.csurfToken %>">
+                        <button class="btn">Buy!</button>
+                    </form>
+                <% } %>
+            </div>
+        </main>
+    </body>
+</html>

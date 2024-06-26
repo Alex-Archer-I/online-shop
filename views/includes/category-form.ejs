@@ -1,0 +1,16 @@
+<form action="" id="categories-form">
+    <input type="hidden" name="_csrf" value="<%= locals.csurfToken %>">
+    <input type="hidden" name="id" id="id"value="0">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+    </p>
+    <p>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+    </p>
+    <p>
+        <button type="button" class="btn btn-alt action-close-form">Close</button>
+        <button type="submit" class="btn">Save</button>
+    </p>
+</form>

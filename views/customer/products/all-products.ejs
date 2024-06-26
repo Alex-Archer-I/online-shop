@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'All Products', links: ['products', 'main-page', 'animations'], scripts: ['cart-helpers', 'cart-connection-all-products', 'cart-managment']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main class="main-page">
+            <%- include('../../includes/catalog', {productsInfo: productsInfo}) %>
+            <section class="product-section">
+                <h1>Our Products</h1>
+                <ul id="category-list">
+                    <% for (const category in productsInfo ) { %>
+                        <% if (productsInfo[`${category}`].length !== 0) { %>
+                        <li>
+                            <h3><%= category %></h3>
+                            <ul id="products-grid">
+                                <% for (const product of productsInfo[`${category}`]) { %>
+                                    <li>
+                                        <%- include('../../includes/product-item', {product: product}) %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </section>
+        </main>
+    <%- include('../../includes/footer') %>
+</html>

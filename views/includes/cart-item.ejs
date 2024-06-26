@@ -1,0 +1,7 @@
+<article class="cart-item" data-id="<%= product.product.id %>" data-csrf="<%= locals.csurfToken %>">
+    <div class="cart-item-info">
+        <h2><%= product.product.title %></h2>
+        <p><span class="cart-item-total-price"><%= product.totalPrice.toFixed(2) %></span> <span class="cart-item-price">(<%= product.product.price.toFixed(2) %>)</span> coins</p>
+    </div>
+    <%- include('product-in-cart-actions', {hidden: false, amount: product.quantity}) %>
+</article>

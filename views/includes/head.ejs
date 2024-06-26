@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/initial.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <% if (links) { %>
+        <% for (const link of links) { %>
+            <link rel="stylesheet" href="/styles/<%= link %>.css">
+        <% } %>
+    <% } %>
+    <script src="/scripts/mobile.js" defer></script>
+    <script src="/scripts/cart-info.js" defer></script>
+    <% if (scripts) { %>
+        <% for (const script of scripts) { %>
+            <script src="/scripts/<%= script %>.js" defer></script>
+        <% } %>
+    <% } %>
+    <title><%= title %></title>
+</head>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'Category', links: ['products', 'main-page', 'animations'], scripts: ['cart-helpers', 'cart-connection-all-products', 'cart-managment']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main class="main-page">
+            <%- include('../../includes/catalog') %>
+            <section>
+                <h1><%= category.name %></h1>
+                <p><%= category.text %></p>
+            </section>
+        </main>
+    </body>
+</html>

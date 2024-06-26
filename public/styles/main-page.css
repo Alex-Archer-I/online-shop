@@ -1,0 +1,48 @@
+.main-page {
+    display: flex;
+    gap: 2rem;
+}
+
+.catalog {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.catalog h3 {
+    text-align: center;
+}
+
+.catalog li {
+    position: relative;
+    width: 95%;
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.catalog li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-initial-300);
+    opacity: 0.5;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.catalog li:hover {
+    transform: scale(1.2);
+}
+
+.catalog li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}

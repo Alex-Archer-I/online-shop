@@ -1,0 +1,17 @@
+.ani-wheel {
+    animation: wheel 0.3s;
+}
+
+.ani-jump {
+    animation: jump 0.3s;
+}
+
+@keyframes wheel {
+    from {transform: rotate(0)}
+    to {transform: rotate(360);}
+}
+
+@keyframes jump {
+    from {transform: translateY(2rem);}
+    to {transform: translateY(0);}
+}

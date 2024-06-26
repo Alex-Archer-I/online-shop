@@ -1,0 +1,45 @@
+<article class="product-item">
+    <img src="<%= product.imgUrl %>" alt="<%= product.title %>">
+    <div class="product-item-content">
+        <h2><%= product.title %></h2>
+        <div class="product-item-actions" data-id="<%= product.id %>" data-csrf="<%= locals.csurfToken %>">
+            <% if (locals.isAdmin) { %>
+                <div class="product-actions flex">
+                    <a class="product-action" href="/admin/products/<%= product.id %>">
+                        <img src="/icons/info.png" alt="">
+                    </a>
+                    <button class="product-action" data-product-id="<%= product.id %>" data-csrf="<%= locals.csurfToken %>">
+                        <img src="/icons/delete.png" alt="">
+                    </button>
+                </div>
+            <% } else { %>
+                <% let isInCart = false %>
+                <% let itemQuantity = 0 %>
+                <% for (const item of locals.cart.items) {
+                    if (item.product.id === product.id) {
+                        isInCart = true;
+                        itemQuantity = item.quantity;
+                    };
+                } %>
+                <% let actionClass; %>
+                <% let imgSrc; %>
+                <% if (isInCart) {
+                    actionClass = 'remove-from-cart';
+                    imgSrc = 'delete.png';
+                } else {
+                    actionClass = 'add-to-cart';
+                    imgSrc = 'add.png';
+                } %>
+                <%- include('product-in-cart-actions', {hidden: !isInCart, amount: itemQuantity}) %>
+                <div class="product-actions flex">
+                    <a class="product-action" href="/products/<%= product.id %>">
+                        <img src="/icons/info.png" alt="Info icon">
+                    </a>
+                    <button class="product-action <%= actionClass %>" data-id="<%= product.id %>" data-csrf="<%= locals.csurfToken %>">
+                        <img src="/icons/<%= imgSrc %>" alt="">
+                    </button>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</article>

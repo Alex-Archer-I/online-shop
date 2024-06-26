@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 25rem;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+form a:hover,
+form a:active {
+    color: var(--color-initial-700);
+}

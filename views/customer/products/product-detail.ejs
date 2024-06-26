@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: '', links: ['products'], scripts: ['cart']}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main id="product-details">
+            <ul>
+                <li><a href="">All Products</a></li>
+                <li><a href=""><%= product.category %></a></li>
+            </ul>
+            <header>
+                <img src="<%= product.imgUrl %>" alt="<%= product.title %>">
+                <div id="product-info">
+                    <h1><%= product.title %></h1>
+                    <p><%= product.price %> coins</p>
+                    <button class="btn" data-id="<%= product.id %>" data-csrf="<%= locals.csurfToken %>">Add to cart</button>
+                </div>
+            </header>
+
+            <p id="product-description"><%= product.description %></p>
+        </main>
+    <%- include('../../includes/footer') %>
+</html>

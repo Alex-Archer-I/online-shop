@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'LogIn', links: ['form', 'auth'], scripts: null}) %>
+    <body>
+        <%- include('../../includes/header') %>
+        <main>
+            <h1>Log In</h1>
+            <% if (value.error) { %>
+                <section class="alert">
+                    <p><%= value.error %></p>
+                </section>
+            <% } %>
+            <form action="/login" method="POST">
+                <input type="hidden" name="_csrf" value="<%= locals.csurfToken %>">
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="<%= value.email %>" required>
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" value="<%= value.password %>" required>
+                </p>
+                <button class="btn">Log In</button>
+                <p id="to-login"><a href="/singup">Create New Account</a></p>
+            </form>
+        </main>
+    <%- include('../../includes/footer') %>
+</html>

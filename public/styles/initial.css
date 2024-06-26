@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+
+    --color-initial-100: rgb(205, 228, 241);
+    --color-initial-300: rgb(151, 199, 238);
+    --color-initial-500: rgb(95, 171, 233);
+    --color-initial-700: rgb(52, 127, 189);
+
+    --color-error-100: rgb(255, 194, 194);
+    --color-error-500: rgb(138, 50, 50);
+
+    --shadow: 3px 3px 0 rgba(23, 115, 158, 0.7);
+
+    --container-width: 70rem;
+}
+
+body {
+    background-color: var(--color-initial-100);
+    color: var(--color-initial-700);
+    margin: 0;
+}
+
+main {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+ul, ol, menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-initial-700);
+}
+
+.btn {
+    cursor: pointer;
+    font: inherit;
+    background-color: var(--color-initial-500);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    box-shadow: var(--shadow);
+}
+
+.btn:hover,
+.btn:active {
+    box-shadow: none;
+}
+
+.btn-alt {
+    background-color: transparent;
+    color: var(--color-initial-700);
+    border: 1px solid var(--color-initial-700);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+    background-color: var(--color-initial-700);
+    color: white;
+}
+
+.alert {
+    background-color: var(--color-error-100);
+    color: var(--color-error-500);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    text-align: center;
+}
+
+.badge {
+    margin-left: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../includes/head', {title: 'Edit categories', links: ['categories' ,'form'], scripts: ['category-managment']}) %>
+<body>
+    <aside class="hidden">
+        <%- include('../../includes/category-form') %>
+    </aside>
+    <%- include('../../includes/header') %>
+    <main>
+        <button class="btn action-new-category">Add new category</button>
+        <ul id="categories" data-csrf="<%= locals.csurfToken %>">
+            <% for (const  category of categories) { %>
+                <%- include('../../includes/category-item', {category: category}) %>
+            <% } %>
+        </ul>
+    </main>
+    <%- include('../../includes/footer') %>
+</body>
+</html>
